@@ -1,10 +1,5 @@
 pipeline {
 
-    agent { dockerfile {
-            filename 'Dockerfile'
-        }
-    }
-
     stages {
         stage('git_files') {
             steps {
@@ -15,6 +10,7 @@ pipeline {
     
     stages {
         stage('run_files') {
+            agent { dockerfile true }
             steps {
                 sh 'python3 rfam.py'
             }
