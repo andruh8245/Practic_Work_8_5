@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git_files') {
             steps {
-                git 'https://github.com/andruh8245/Practic_Work_8_5.git'
+                git branch: 'main', url: 'https://github.com/andruh8245/Practic_Work_8_5.git'
             }
         }
         stage('start_script') {
