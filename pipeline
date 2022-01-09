@@ -10,7 +10,11 @@ pipeline {
     
     stages {
         stage('run_files') {
-            agent { dockerfile true }
+            agent { dockerfile {
+                    filename 'dockerfile'
+                    label 'my-label'
+                }
+            }
             steps {
                 sh 'python3 rfam.py'
             }
