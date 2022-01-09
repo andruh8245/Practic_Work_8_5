@@ -1,23 +1,11 @@
 pipeline {
-
+    agent {dockerfile true}
     stages {
         stage('git_files') {
             steps {
                 git 'https://github.com/andruh8245/Practic_Work_8_5.git'
             }
         }
-    }
-    
-    stages {
-        stage('dockerBuild') {
-            steps {
-                sh 'docker build .'
-                sh 'docker run --rm python'
-            }
-        }
-    }
-
-    stages {
         stage('start_script') {
             steps {
                 sh 'python3 rfam.py'
