@@ -41,6 +41,6 @@ if __name__ == '__main__':
 
     with connectDatabase.connect() as conn:
         query = text(stringQuery)
-        result = connectDatabase.execute(query)
+        result = conn.execute(query)
 
         print(result.fetchall())
